@@ -25,19 +25,10 @@ export const Form = styled.form`
   margin-top: 30px;
   display: flex;
   flex-direction: row;
-
-  input {
-    flex: 1;
-    border: 1px solid #eee;
-    padding: 10px 15px;
-    margin: 0 15px;
-    border-radius: 4px;
-    font-size: 16px;
-  }
 `;
 
 export const SubmitButton = styled.button.attrs({
-  type: 'submit',
+  type: 'button',
 })`
   background: #7159c1;
   border: 0;
@@ -48,4 +39,15 @@ export const SubmitButton = styled.button.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const TableActions = styled.div`
+  display: flex;
+  margin: 5px;
+`;
+
+export const TableIcon = styled.button`
+  background-color: transparent;
+  border: 0;
+  margin-right: 5px;
 `;
