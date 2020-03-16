@@ -58,6 +58,7 @@ export const SubmitButton = styled.button.attrs({
   padding: 0 15px;
   margin-left: 10px;
   border-radius: 4px;
+  margin-bottom: 10px;
 
   display: flex;
   justify-content: center;
@@ -77,6 +78,7 @@ export const LinkAdd = styled(Link)`
   padding: 0 15px;
   margin-left: 10px;
   border-radius: 4px;
+  margin-bottom: 10px;
 
   display: flex;
   justify-content: center;
