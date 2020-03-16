@@ -33,6 +33,14 @@ export const Container = styled.div`
   }
 `;
 
+export const MensagemCentralizada = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+  margin: 0 auto;
+`;
+
 export const Form = styled.form`
   margin-top: 30px;
   display: flex;
@@ -47,6 +55,17 @@ export const TelefoneIcon = styled.button.attrs({
   margin-top: 10px;
   background-color: transparent;
   border: 0;
+`;
+
+export const TelefoneTitulo = styled.button.attrs({
+  type: 'button',
+})`
+  background-color: transparent;
+  border: 0;
+
+  svg {
+    margin-left: 10px;
+  }
 `;
 
 export const Botoes = styled.div`

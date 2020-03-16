@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { FaRunning, FaPlus } from 'react-icons/fa';
+import { FaRunning, FaPlus, FaTrashAlt } from 'react-icons/fa';
 import {
   Container as ContainerBootstrap,
   Row,
@@ -19,27 +19,34 @@ import {
   optionsTipo,
   optionsClassificacao,
   retirarFormatacao,
+  formatarTelefone,
   validarCampos,
 } from '../../../helpers';
 
-import { Container, Form, TelefoneIcon, Botoes } from './styles';
+import {
+  Container,
+  Form,
+  TelefoneIcon,
+  TelefoneTitulo,
+  Botoes,
+} from '../styles';
 
 export default function CustomerCreate() {
   const history = useHistory();
 
   const [customer, setCustomer] = useState({
     nome: '',
-    tipo: 0,
+    tipo: null,
     documento: '',
     razao: '',
     cep: '',
     email: '',
     classificacao: 0,
-    // phones: [
-    //   {
-    //     number: '',
-    //   },
-    // ],
+    phones: [
+      {
+        number: '',
+      },
+    ],
   });
 
   async function handleSubmit() {
@@ -193,59 +200,69 @@ export default function CustomerCreate() {
 
             <hr />
 
-            {/* <Row>
+            <Row>
               <Col>
-                <h6>
+                <TelefoneTitulo
+                  onClick={() =>
+                    setCustomer({
+                      ...customer,
+                      phones: [
+                        ...customer.phones,
+                        {
+                          number: '',
+                        },
+                      ],
+                    })
+                  }
+                >
                   <b>Telefone(s)</b>
-                </h6>
+                  <FaPlus color="#1DB954" />
+                </TelefoneTitulo>
               </Col>
             </Row>
 
             <br />
 
             {customer.phones.map((phone, index) => (
-              <Row key={phone.number}>
+              <Row>
                 <Col md={4}>
                   <InputMaskComponent
-                    value={phone.number}
-                    disabled
+                    value={formatarTelefone(phone ? phone.number : null)}
                     onChange={e => {
-                      const valor = e ? e.target.value : null;
-
-                      const novoCustomer = customer;
-
-                      novoCustomer.phones.map((item, i) => {
-                        if (i === index) {
-                          item.number += valor;
-                        }
-                        return item;
+                      setCustomer({
+                        ...customer,
+                        phones: customer.phones.map((m, mi) => {
+                          if (
+                            index === mi &&
+                            retirarFormatacao(e.target.value).length <= 11
+                          ) {
+                            m.number = retirarFormatacao(e.target.value);
+                            return m;
+                          }
+                          return m;
+                        }),
                       });
-
-                      setCustomer(novoCustomer);
                     }}
                   />
                 </Col>
                 <Col>
                   <TelefoneIcon
-                    onClick={() =>
+                    onClick={() => {
                       setCustomer({
                         ...customer,
-                        phones: [
-                          ...customer.phones,
-                          {
-                            number: '',
-                          },
-                        ],
-                      })
-                    }
+                        phones: (customer.phones = customer.phones.filter(
+                          (f, y) => y !== index
+                        )),
+                      });
+                    }}
                   >
-                    <FaPlus color="1DB954" />
+                    <FaTrashAlt color="#dc3545" />
                   </TelefoneIcon>
                 </Col>
               </Row>
             ))}
 
-            <hr /> */}
+            <hr />
 
             <Botoes>
               <Button variant="danger" onClick={() => history.push('/')}>

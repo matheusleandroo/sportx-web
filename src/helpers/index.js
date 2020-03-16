@@ -25,7 +25,7 @@ export const optionsClassificacao = [
 ];
 
 export function retirarFormatacao(valor) {
-  return valor.replace(/(\.|\/|-)/g, '');
+  return valor.replace(/(\(|\)|\.|\/|-)/g, '');
 }
 
 function mascaraCpf(valor) {
@@ -62,6 +62,8 @@ function mascaraTelefone(valor) {
 }
 
 export function formatarTelefone(valor) {
+  if (!valor) return valor;
+
   if (valor.length <= 10) {
     valor = mascaraTelefone(valor);
   } else {
