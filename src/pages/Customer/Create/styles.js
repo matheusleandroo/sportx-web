@@ -25,6 +25,12 @@ export const Container = styled.div`
       margin-right: 10px;
     }
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 20px;
+    }
+  }
 `;
 
 export const Form = styled.form`

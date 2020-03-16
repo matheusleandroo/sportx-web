@@ -31,6 +31,15 @@ export const Form = styled.form`
     min-width: 250px;
     padding-right: 15px;
   }
+
+  @media (max-width: 768px) {
+    display: grid;
+
+    > div {
+      min-width: 20px;
+      padding-right: 0;
+    }
+  }
 `;
 
 export const MensagemCentralizada = styled.div`
@@ -53,6 +62,13 @@ export const SubmitButton = styled.button.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    margin-left: 0;
+  }
 `;
 
 export const LinkAdd = styled(Link)`
@@ -65,6 +81,12 @@ export const LinkAdd = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    margin-left: 0;
+  }
 `;
 
 export const TableActions = styled.div`
