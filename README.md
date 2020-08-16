@@ -22,7 +22,7 @@ After instalition, try typing **```yarn -v```** into your command line. You shou
 
 <h4>API</h4>
 
-You must have the <a href="https://github.com/matheusleandroo/sportx-api">SportX-API</a>.
+You must have the <a href="https://github.com/matheusleandroo/sportx-api">SportX API</a>.
 
 <h3>Deploy</h3>
 
