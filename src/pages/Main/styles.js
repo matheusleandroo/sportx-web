@@ -15,6 +15,7 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
     text-align: center;
+    color: #3c2886;
 
     svg {
       margin-right: 10px;
@@ -100,4 +101,24 @@ export const TableIcon = styled.button`
   background-color: transparent;
   border: 0;
   margin-right: 5px;
+`;
+
+export const Card = styled.div`
+  width: 100%;
+  margin: 10px auto;
+  color: #e6e6f0;
+
+  p {
+    color: #373d42;
+  }
+
+  strong {
+    color: #150842;
+  }
+`;
+
+export const CardHeader = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 `;

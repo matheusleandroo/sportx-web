@@ -31,6 +31,8 @@ import {
   LinkAdd,
   TableActions,
   TableIcon,
+  Card,
+  CardHeader,
 } from './styles';
 
 export default function Main() {
@@ -129,21 +131,16 @@ export default function Main() {
           ) : (
             <>
               {customers.map(customer => (
-                <div
-                  key={customer.id}
-                  className="card"
-                  style={{ width: '100%', margin: '10px auto' }}
-                >
+                <Card key={customer.id} className="card">
                   <div className="card-body">
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                      }}
-                    >
+                    <CardHeader>
                       <div>
-                        <h5 className="card-title">{customer.nome}</h5>
+                        <h5
+                          className="card-title"
+                          style={{ color: '#291867', fontWeight: 'bold' }}
+                        >
+                          {customer.nome}
+                        </h5>
                         <h6 className="card-subtitle mb-2 text-muted">
                           {(customer.tipo === ETipo.PESSOA_FISICA
                             ? 'Pessoa Física'
@@ -158,15 +155,15 @@ export default function Main() {
                         <TableActions>
                           <Link to={`/customer/${customer.id}`}>
                             <TableIcon>
-                              <FaEdit color="#333" size={14} />
+                              <FaEdit color="#7159c1" size={14} />
                             </TableIcon>
                           </Link>
                           <TableIcon onClick={() => handleDelete(customer.id)}>
-                            <FaTrashAlt color="#333" size={14} />
+                            <FaTrashAlt color="#dc3645" size={14} />
                           </TableIcon>
                         </TableActions>
                       </div>
-                    </div>
+                    </CardHeader>
                     <br />
                     <p>
                       <strong>Documento:</strong>{' '}
@@ -204,7 +201,7 @@ export default function Main() {
                       <p key={phone.id}>{formatarTelefone(phone.number)}</p>
                     ))}
                   </div>
-                </div>
+                </Card>
               ))}
             </>
           )}
