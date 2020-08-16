@@ -169,7 +169,7 @@ export default function CustomerEdit({ match }) {
                 <Row>
                   <Col md={4}>
                     <InputMaskComponent
-                      mask="99-999-999"
+                      mask="99999-999"
                       possuiLabel
                       label="CEP"
                       value={customer.cep}
