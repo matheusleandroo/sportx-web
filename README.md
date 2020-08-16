@@ -5,7 +5,7 @@
 </h3>
 
 <h1 align="center">
-  <img alt="SportX Home" title="SportX Home" src="https://raw.githubusercontent.com/matheusleandroo/sportx-web/master/src/assets/images/sportx-home.jpeg" width="700px" />
+  <img alt="SportX Home" title="SportX Home" src="https://raw.githubusercontent.com/matheusleandroo/sportx-web/master/src/assets/images/sportx-home.png" width="700px" />
 </h1>
 
 <h3>Getting Started</h3>
