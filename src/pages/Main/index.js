@@ -8,7 +8,6 @@ import {
   FaEdit,
   FaTrashAlt,
 } from 'react-icons/fa';
-import { Table } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import SelectComponent from '../../components/Select';
 
@@ -115,6 +114,7 @@ export default function Main() {
       </Form>
 
       <hr />
+      <br />
 
       {carregando ? (
         <MensagemCentralizada>
@@ -127,54 +127,65 @@ export default function Main() {
               <h3>Nenhum item encontrado :(</h3>
             </MensagemCentralizada>
           ) : (
-            <Table hover responsive size="sm">
-              <thead>
-                <tr>
-                  <th> </th>
-                  <th>Cliente</th>
-                  <th>Tipo</th>
-                  <th>Documento</th>
-                  <th>Razão</th>
-                  <th>CEP</th>
-                  <th>E-mail</th>
-                  <th>Classificação</th>
-                  <th>Telefone</th>
-                </tr>
-              </thead>
-              <tbody>
-                {customers.map(customer => (
-                  <tr key={customer.id}>
-                    <td>
-                      <TableActions>
-                        <Link to={`/customer/${customer.id}`}>
-                          <TableIcon>
-                            <FaEdit color="#333" size={14} />
+            <>
+              {customers.map(customer => (
+                <div
+                  key={customer.id}
+                  className="card"
+                  style={{ width: '100%', margin: '10px auto' }}
+                >
+                  <div className="card-body">
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <div>
+                        <h5 className="card-title">{customer.nome}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">
+                          {(customer.tipo === ETipo.PESSOA_FISICA
+                            ? 'Pessoa Física'
+                            : null) ||
+                            (customer.tipo === ETipo.PESSOA_JURIDICA
+                              ? 'Pessoa Jurídica'
+                              : null) ||
+                            null}
+                        </h6>
+                      </div>
+                      <div>
+                        <TableActions>
+                          <Link to={`/customer/${customer.id}`}>
+                            <TableIcon>
+                              <FaEdit color="#333" size={14} />
+                            </TableIcon>
+                          </Link>
+                          <TableIcon onClick={() => handleDelete(customer.id)}>
+                            <FaTrashAlt color="#333" size={14} />
                           </TableIcon>
-                        </Link>
-                        <TableIcon onClick={() => handleDelete(customer.id)}>
-                          <FaTrashAlt color="#333" size={14} />
-                        </TableIcon>
-                      </TableActions>
-                    </td>
-                    <td style={{ maxWidth: '200px' }}>{customer.nome}</td>
-                    <td>
-                      {(customer.tipo === ETipo.PESSOA_FISICA
-                        ? 'Pessoa Física'
-                        : null) ||
-                        (customer.tipo === ETipo.PESSOA_JURIDICA
-                          ? 'Pessoa Jurídica'
-                          : null) ||
-                        null}
-                    </td>
-                    <td style={{ minWidth: '140px' }}>
+                        </TableActions>
+                      </div>
+                    </div>
+                    <br />
+                    <p>
+                      <strong>Documento:</strong>{' '}
                       {formatarDocumento(customer.documento)}
-                    </td>
-                    <td style={{ maxWidth: '200px' }}>{customer.razao}</td>
-                    <td style={{ minWidth: '85px' }}>
-                      {formatarCep(customer.cep)}
-                    </td>
-                    <td>{customer.email}</td>
-                    <td>
+                    </p>
+                    {customer.razao && (
+                      <p>
+                        <strong>Razão:</strong> {customer.razao}
+                      </p>
+                    )}
+
+                    <p>
+                      <strong>CEP:</strong> {formatarCep(customer.cep)}
+                    </p>
+                    <p>
+                      <strong>E-mail:</strong> {customer.email}
+                    </p>
+                    <p>
+                      <strong>Classificação:</strong>{' '}
                       {(customer.classificacao === EClassificacao.ATIVO
                         ? 'Ativo'
                         : null) ||
@@ -185,16 +196,17 @@ export default function Main() {
                           ? 'Preferencial'
                           : null) ||
                         null}
-                    </td>
-                    <td style={{ minWidth: '125px' }}>
-                      {customer.phones.map(phone => (
-                        <p key={phone.id}>{formatarTelefone(phone.number)}</p>
-                      ))}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
+                    </p>
+                    <p>
+                      <strong>Telefone(s):</strong>
+                    </p>
+                    {customer.phones.map(phone => (
+                      <p key={phone.id}>{formatarTelefone(phone.number)}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </>
           )}
         </>
       )}
