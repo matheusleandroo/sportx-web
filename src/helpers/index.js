@@ -50,7 +50,7 @@ export function formatarDocumento(valor) {
 }
 
 export function formatarCep(valor) {
-  return valor.replace(/(\d{2})(\d{3})(\d{3})/g, '$1-$2-$3');
+  return valor.replace(/(\d{5})(\d{3})/g, '$1-$2');
 }
 
 function mascaraCelular(valor) {

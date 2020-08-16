@@ -153,7 +153,7 @@ export default function CustomerCreate() {
             <Row>
               <Col md={4}>
                 <InputMaskComponent
-                  mask="99-999-999"
+                  mask="99999-999"
                   possuiLabel
                   label="CEP"
                   value={customer.cep}
@@ -246,18 +246,20 @@ export default function CustomerCreate() {
                   />
                 </Col>
                 <Col>
-                  <TelefoneIcon
-                    onClick={() => {
-                      setCustomer({
-                        ...customer,
-                        phones: (customer.phones = customer.phones.filter(
-                          (f, y) => y !== index
-                        )),
-                      });
-                    }}
-                  >
-                    <FaTrashAlt color="#dc3545" />
-                  </TelefoneIcon>
+                  {customer.phones.length > 1 && (
+                    <TelefoneIcon
+                      onClick={() => {
+                        setCustomer({
+                          ...customer,
+                          phones: (customer.phones = customer.phones.filter(
+                            (f, y) => y !== index
+                          )),
+                        });
+                      }}
+                    >
+                      <FaTrashAlt color="#dc3545" />
+                    </TelefoneIcon>
+                  )}
                 </Col>
               </Row>
             ))}
@@ -265,11 +267,11 @@ export default function CustomerCreate() {
             <hr />
 
             <Botoes>
-              <Button variant="danger" onClick={() => history.push('/')}>
-                Cancelar
-              </Button>
               <Button variant="success" onClick={() => handleSubmit()}>
                 Salvar
+              </Button>
+              <Button variant="danger" onClick={() => history.push('/')}>
+                Cancelar
               </Button>
             </Botoes>
           </ContainerBootstrap>
