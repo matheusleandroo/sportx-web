@@ -1,4 +1,4 @@
-# Sportx-WEB
+# SportX WEB
 
 System for registering customers in a sports store.
 
@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 <h4>NodeJS</h4>
 
-You need to install NodeJS on your computer before you can use "**Sportx-WEB**". You can install NodeJS by following <a href="https://nodejs.org/en/download/package-manager/">these instructions</a>.
+You need to install NodeJS on your computer before you can use "**SportX WEB**". You can install NodeJS by following <a href="https://nodejs.org/en/download/package-manager/">these instructions</a>.
 
 Once you have completed the installation process, try typing **```npm -v```** into your command line. You should get a response with the version of NodeJS.
 
@@ -28,10 +28,12 @@ You must have the <a href="https://github.com/matheusleandroo/sportx-api">SportX
 
 After clone repository, go to folder and follow this steps:
 
+- Create a file **`.env`** based on the file **`.env.example`**;
+- Place your settings inside the **`.env`** file;
 - Run **`yarn`** to install dependencies;
-- Run **`yarn start`** to start de aplication.
+- Run **`yarn start`** to start application.
 
-Now you can use from your browser "**Sportx-WEB**".
+Now you can use from your browser "**SportX WEB**".
 
 <h3>Built With</h3>
 
