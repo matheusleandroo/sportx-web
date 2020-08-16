@@ -30,6 +30,12 @@ After instalition, try typing **```yarn -v```** into your command line. You shou
 
 You must have the <a href="https://github.com/matheusleandroo/sportx-api">SportX API</a>.
 
+It is recommended to install the extension ESLint, Prettier, EditorConfig and edit the code editor' settings:
+```
+  "files.eol": "\n",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+```
+
 <h3>Deploy</h3>
 
 After clone repository, go to folder and follow this steps:
@@ -45,6 +51,15 @@ Now you can use from your browser "**SportX WEB**".
 
 <ul>
   <li>ReactJS</li>
+</ul>
+
+<h3>Tools</h3>
+
+<ul>
+  <li>Bootstrap</li>
+  <li>Dotenv</li>
+  <li>PropTypes</li>
+  <li>ESLint + Prettier + EditorConfig</li>
 </ul>
 
 <h3>Authors</h3>
